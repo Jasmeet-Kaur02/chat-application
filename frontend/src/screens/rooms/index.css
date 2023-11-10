@@ -1,0 +1,24 @@
+
+.select-room-label {
+    text-align: center;
+    font-size: 20px;
+}
+
+.divider {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
+ margin-top: 40px;
+ margin-bottom: 40px;
+}
+.divider div {
+    width: 40%;
+    height: 1px;
+    background-color: grey;
+}
+
+.divider p {
+    color: grey;
+    margin: 0px 12px;
+}

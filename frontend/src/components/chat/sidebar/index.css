@@ -1,0 +1,19 @@
+.sidebar {
+    height: 100%;
+    flex-basis: 20%;
+    background-color: #ffffff;
+    border-right: 1px solid #dedede;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    border-bottom: 1px solid rgb(210, 210, 210);
+    padding: 8px 18px;
+}
+
+.sidebar ul {
+    list-style: none;
+    line-height: 32px;
+    margin-top: 26px;
+    padding-left: 18px;
+}

@@ -1,0 +1,35 @@
+
+
+.message {
+    width: fit-content;
+    max-width: 400px;
+}
+
+.message div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 0px;
+    height: 26px;
+    column-gap: 6px;
+}
+
+.message div:nth-child(1) p:nth-child(1) {
+ font-size: 14px;
+ font-weight: 600;
+ padding: 0px;
+}
+
+.message div:nth-child(1) p:nth-child(2) {
+    color: grey;
+    font-size: 12px;
+}
+
+.message div:nth-child(2) p {
+    background-color: white;
+    margin-top: 6px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 16px;
+}
