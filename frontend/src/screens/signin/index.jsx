@@ -2,12 +2,52 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../context/userContext";
 import { signin } from "../../api/auth";
+import { localStorageKeys } from "../../constants";
+import { validEmailRegex } from "../../constants";
 
 const SignIn = () => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [user, setUser] = useUser();
+  const [errors, setErrors] = useState(null);
+
+  const onChange = (e) => {
+    const value = e.target.value;
+    if (errors) {
+      setErrors(null);
+    }
+    switch (e.target.name) {
+      case "email":
+        setEmail(value);
+        break;
+      case "password":
+        setPassword(value);
+        break;
+      default:
+        return;
+    }
+  };
+
+  const onValidate = (e) => {
+    e.preventDefault();
+    const err = {};
+    if (email === "") {
+      err.email = "Email is required";
+    }
+    if (!email.match(validEmailRegex)) {
+      err.email = "Email is invalid";
+    }
+    if (password === "") {
+      err.password = "Password is required";
+    }
+
+    if (Object.keys(err).length > 0) {
+      setErrors(err);
+      return;
+    }
+    onSignIn();
+  };
 
   const onSignIn = async () => {
     await signin({
@@ -15,7 +55,18 @@ const SignIn = () => {
       password,
     })
       .then((res) => {
-        setUser(res.data.user);
+        if (res.status) {
+          setUser(res.data.user);
+          localStorage.setItem(
+            localStorageKeys.loggedInUserToken,
+            res.data.accessToken
+          );
+          navigate("/enter-room");
+        } else {
+          setErrors({
+            message: res.message,
+          });
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -24,15 +75,21 @@ const SignIn = () => {
 
   return (
     <div className="screen-wrapper">
-      <form className="form">
+      <form onSubmit={onValidate} className="form">
         <h2 className="form-heading">Sign In</h2>
+
         <label>Email</label>
-        <input value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input name="email" value={email} onChange={onChange} />
+        {errors?.email && <p className="error-message">{errors.email}</p>}
+
         <label>Password</label>
-        <input value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input name="password" value={password} onChange={onChange} />
+        {errors?.password && <p className="error-message">{errors.password}</p>}
+
+        {errors?.message && <p className="error-message">{errors.message}</p>}
 
         <div className="btn-wrapper">
-          <button onClick={onSignIn} className="submit-btn">
+          <button type="submit" className="submit-btn">
             Submit
           </button>
         </div>

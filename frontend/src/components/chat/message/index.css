@@ -1,11 +1,20 @@
-
-
 .message {
-    width: fit-content;
-    max-width: 400px;
+ width: 100%;
+ display: flex;
+ flex-direction: column;
 }
 
-.message div:nth-child(1) {
+.message-details {
+    width: fit-content;
+    max-width: 400px;
+    align-self: flex-start;
+}
+
+.self-message {
+    align-self: flex-end;
+}
+
+.message-details div:nth-child(1) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,18 +24,18 @@
     column-gap: 6px;
 }
 
-.message div:nth-child(1) p:nth-child(1) {
+.message-details div:nth-child(1) p:nth-child(1) {
  font-size: 14px;
  font-weight: 600;
  padding: 0px;
 }
 
-.message div:nth-child(1) p:nth-child(2) {
+.message-details div:nth-child(1) p:nth-child(2) {
     color: grey;
     font-size: 12px;
 }
 
-.message div:nth-child(2) p {
+.message-details div:nth-child(2) p {
     background-color: white;
     margin-top: 6px;
     padding: 8px 12px;

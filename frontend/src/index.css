@@ -45,6 +45,12 @@ outline: none;
 margin-top: 20px;
 }
 
+.error-message {
+  color: #f02828;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
 .submit-btn:hover {
   background-color: #0f4acb;
 }

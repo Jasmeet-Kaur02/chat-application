@@ -1,8 +1,17 @@
 import "./index.css";
+import { useState } from "react";
 
-const ChatInput = () => {
+const ChatInput = ({ onSendMessage }) => {
+  const [message, setMessage] = useState("");
+
+  const sendMessageHandler = (e) => {
+    setMessage("");
+    e.preventDefault();
+    onSendMessage(message);
+  };
+
   return (
-    <form className="chat-input-wrapper">
+    <form onSubmit={sendMessageHandler} className="chat-input-wrapper">
       <button className="attach-files-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -19,8 +28,8 @@ const ChatInput = () => {
           />
         </svg>
       </button>
-      <input />
-      <button className="send-btn">
+      <input value={message} onChange={(e) => setMessage(e.target.value)} />
+      <button type="submit" className="send-btn">
         <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -22,19 +22,15 @@ export class ApiClient {
     const token = await localStorage.getItem(
       localStorageKeys.loggedInUserToken
     );
-    const parsedToken = token && JSON.parse(token);
 
-    const tokenObj = { Authorization: `Bearer ${parsedToken}` };
+    const tokenObj = { Authorization: `Bearer ${token}` };
     const configWithToken = {
       ...apiConfig,
       headers: {
         ...apiConfig.headers,
-        ...(parsedToken && tokenObj),
+        ...(token && tokenObj),
       },
     };
-    console.log(`${method} REQUEST: ${url}`);
-    console.log("HEADER:", configWithToken);
-    console.log("DATA:", data);
 
     const body = method !== "GET" && {
       body: data instanceof FormData ? data : JSON.stringify(data),
