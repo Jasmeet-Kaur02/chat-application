@@ -1,0 +1,11 @@
+[
+    {"name": "Foodies Corner", "id": 1},
+    {"name": "Tech Talk", "id": 2},
+    {"name": "Music Lovers", "id": 3},
+    {"name": "Book Club", "id": 4},
+    {"name": "Gaming Zone", "id": 5},
+    {"name": "Fashion Trends", "id": 6},
+    {"name": "Fitness Fanatics", "id": 7},
+    {"name": "Travel Enthusiasts", "id": 8},
+    {"name": "Motivation and Inspiration", "id": 9}
+]
