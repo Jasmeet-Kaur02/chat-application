@@ -1,0 +1,14 @@
+[
+  {
+    "fullName": "jane Smith",
+    "email": "janeSmith@mail.com",
+    "password": "$2b$09$Y/IPZO/3T.FlTFg5dDquUuRw4BSho7ZMJly6hwxWvwLiJShK1KI9S",
+    "id": "39dc0b6e-77fa-4b32-b75c-1556a2a6592f"
+  },
+  {
+    "fullName": "john doe",
+    "email": "john@mail.com",
+    "password": "$2b$09$8NbKJf1731F5OJz4gHFGbeXygqXB//1N/dfUGRDCByLwS6rPEIBNC",
+    "id": "0ae2d1e6-6834-4171-a5b1-1d2a0166d8dc"
+  }
+]
