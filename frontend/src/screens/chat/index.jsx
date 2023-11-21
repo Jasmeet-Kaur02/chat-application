@@ -58,8 +58,9 @@ const Chat = () => {
       />
       <div className="chat-window">
         <div className="message-wrapper">
-          {chats.map((chat) => (
+          {chats.map((chat, index) => (
             <Message
+              key={`${index}`}
               message={chat.message}
               userName={chat.userName}
               time={chat.time}

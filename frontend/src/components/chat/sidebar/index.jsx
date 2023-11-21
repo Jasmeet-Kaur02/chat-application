@@ -17,7 +17,7 @@ const Sidebar = ({ roomName, users, onLogout, onLeave }) => {
         <h2>{roomName}</h2>
         <ul>
           {formatUsers(users).map((user) => (
-            <li>
+            <li key={user.id}>
               {`${
                 loggedInUser.fullName === user.fullName ? "You" : user.fullName
               }`}
