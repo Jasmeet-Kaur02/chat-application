@@ -4,6 +4,7 @@ import { useUser } from "../../context/userContext";
 import { signin } from "../../api/auth";
 import { localStorageKeys } from "../../constants";
 import { validEmailRegex } from "../../constants";
+import PasswordInput from "../../components/passwordInput";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -83,7 +84,7 @@ const SignIn = () => {
         {errors?.email && <p className="error-message">{errors.email}</p>}
 
         <label>Password</label>
-        <input name="password" value={password} onChange={onChange} />
+        <PasswordInput password={password} setPassword={onChange} />
         {errors?.password && <p className="error-message">{errors.password}</p>}
 
         {errors?.message && <p className="error-message">{errors.message}</p>}

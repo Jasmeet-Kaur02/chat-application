@@ -3,6 +3,7 @@ import { useUser } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import { signup } from "../../api/auth";
 import { localStorageKeys, validEmailRegex } from "../../constants";
+import PasswordInput from "../../components/passwordInput";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ const SignUp = () => {
         {errors?.email && <p className="error-message">{errors.email}</p>}
 
         <label>Password</label>
-        <input name="password" value={password} onChange={onChange} />
+        <PasswordInput password={password} setPassword={onChange} />
         {errors?.password && <p className="error-message">{errors.password}</p>}
 
         {errors?.message && <p className="error-message">{errors.message}</p>}

@@ -123,3 +123,25 @@ select:hover {
   outline: none;
   border-color: blue;
 }
+
+.password-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #bfbfbf;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0px 8px;
+  height: 32px;
+  margin-top: 4px;
+}
+
+.password-input input {
+  height: 28px;
+  border: none;
+}
+
+.password-input span {
+  width: 20px;
+  height:20px;
+}
